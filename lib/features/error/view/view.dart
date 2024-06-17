@@ -12,9 +12,12 @@ class ErrorScreen extends StatelessWidget {
         title: const Text('Error'),
       ),
       body: Center(
-        child: Text(
-          '${Get.arguments['error']}',
-          style: const TextStyle(color: Colors.red),
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Text(
+            '${Get.arguments['error']}',
+            style: const TextStyle(color: Colors.red),
+          ),
         ),
       ),
     );

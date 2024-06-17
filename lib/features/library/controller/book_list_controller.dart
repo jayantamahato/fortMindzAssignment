@@ -6,7 +6,7 @@ class BookListController extends GetxController {
   RxBool isLoading = false.obs;
   RxList books = [].obs;
   final BookRepository _bookRepository = BookRepository();
-  getList() async {
+  Future getList() async {
     try {
       isLoading(true);
       var res = await _bookRepository.getBooks();

@@ -3,7 +3,6 @@ import 'package:fml/core/colors.dart';
 import 'package:fml/features/library/controller/book_list_controller.dart';
 import 'package:fml/features/library/view/widgets/fetch_button.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
 
 import 'widgets/app_bar.dart';
 
@@ -16,12 +15,14 @@ class ListScreen extends StatefulWidget {
 }
 
 class _ListScreenState extends State<ListScreen> {
-  BookListController _bookListController = Get.put(BookListController());
+  final BookListController _bookListController = Get.put(BookListController());
 
   @override
   void initState() {
     super.initState();
-    _bookListController.getList();
+    Future.delayed(Duration.zero, () async {
+      await _bookListController.getList();
+    });
   }
 
   @override

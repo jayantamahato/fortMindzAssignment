@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fml/features/library/controller/book_list_controller.dart';
-import 'package:get/get.dart';
 
 class FetchButton extends StatelessWidget {
   final BookListController controller;
@@ -9,8 +8,8 @@ class FetchButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {
-          controller.isLoading.value ? null : controller.getList();
+        onPressed: () async {
+          controller.isLoading.value ? null : await controller.getList();
         },
         child: const Text('Get book list'));
   }
