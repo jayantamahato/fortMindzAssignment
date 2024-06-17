@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fml/features/library/controller/book_details_controller.dart';
-import 'package:fml/features/library/view/widgets/app_bar.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
+import 'widgets/app_bar.dart';
 
 class DetailsScreen extends StatelessWidget {
   static String route = '/details';

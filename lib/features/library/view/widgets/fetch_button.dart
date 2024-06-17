@@ -12,13 +12,6 @@ class FetchButton extends StatelessWidget {
         onPressed: () {
           controller.isLoading.value ? null : controller.getList();
         },
-        child: Obx(() => controller.isLoading.value
-            ? const SizedBox(
-                height: 24,
-                width: 24,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                ))
-            : const Text('Get book list')));
+        child: const Text('Get book list'));
   }
 }

@@ -1,23 +1,20 @@
-import 'package:flutter/material.dart';
-import 'package:fml/core/network_provide.dart';
-import 'package:fml/features/library/model/book_model.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
+import '../../../data/repository/books_repository.dart';
+import '../model/book_model.dart';
 
 class BookListController extends GetxController {
   RxBool isLoading = false.obs;
   RxList books = [].obs;
-
-  final API _api = API();
+  final BookRepository _bookRepository = BookRepository();
   getList() async {
     try {
       isLoading(true);
-      var res = await _api.makeRequest
-          .get('/books?bibkeys=ISBN:0201558025,LCCN:93005405&format=json');
+      var res = await _bookRepository.getBooks();
       books.clear();
       books.add(Book.fromJson(res.data['ISBN:0201558025']));
       books.add(Book.fromJson(res.data['LCCN:93005405']));
     } catch (e) {
+      Get.toNamed('/error', arguments: {'error': '$e'});
     } finally {
       isLoading(false);
     }

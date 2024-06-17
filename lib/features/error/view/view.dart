@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 
 class ErrorScreen extends StatelessWidget {
   const ErrorScreen({super.key});
+  static String route = '/error';
 
   @override
   Widget build(BuildContext context) {
